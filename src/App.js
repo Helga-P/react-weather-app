@@ -27,17 +27,21 @@ function App() {
               <Form.Control
                 type="text"
                 placeholder="Enter City"
-                className="no-margin"
+                className="no-margin searchLine"
               ></Form.Control>
             </Col>
             <Col xs="auto">
+              <Button type="submit" size="lg" className="no-margin searchbtn">
+                Search
+              </Button>
+              <span />
               <Button
                 vvariant="primary"
                 type="submit"
                 size="lg"
-                className="no-margin"
+                className="no-margin myGeoBtn"
               >
-                Submit
+                My Geo
               </Button>
             </Col>
           </Row>
@@ -45,7 +49,7 @@ function App() {
         <Row>
           <Col md="auto">
             <ul className="CityWeather">
-              <li>Lisbon</li>
+              <li className="city">Lisbon</li>
               <li>Saturday 19:53</li>
               <li>Clouds</li>
             </ul>
@@ -55,7 +59,7 @@ function App() {
         <Row>
           <Col className="IconAndTemp">
             <img src={DrizzleSunny} alt="SunAndRain" className="MainIcon" />
-            <p>21°C</p>
+            <p className="MainTemp">21°C</p>
           </Col>
           <Col>
             <ul className="CityWeather">

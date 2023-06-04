@@ -9,6 +9,9 @@ body {
   ) !important;
   background-repeat: no-repeat;
   min-height: 100vh;
+  font-family: "Inter";
+  font-style: normal;
+  color: #303345;
 }
 
 .App {
@@ -29,6 +32,38 @@ body {
   border-radius: 18px;
   left: 0px;
   border-radius: 56px;
+  padding: 12px;
+}
+
+.city {
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 700;
+}
+
+button {
+  padding: 0 !important;
+  width: 120px;
+  height: 40px;
+  border: 1px solid #ffffff !important;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  margin: 0;
+  background-color: #de8a2a !important;
+}
+
+.myGeoBtn {
+  background-color: #1468c0 !important;
+}
+
+span {
+  padding-right: 24px;
+}
+
+::placeholder {
+  background-color: rgba(255, 255, 255, 0.36) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 10px;
+  height: 50px;
 }
 
 .WeatherIconSmall {
@@ -41,10 +76,10 @@ body {
   display: flex;
 }
 
+img,
 .MainIcon {
-  width: 80px;
-  height: 80px;
-  filter: drop-shadow(0px 9px 30px rgba(0, 0, 0, 0.05));
+  width: 150px;
+  height: 150px;
 }
 
 .Header {
@@ -54,6 +89,7 @@ body {
   font-weight: 700;
   font-size: 43px;
   line-height: 52px;
+  color: #303345;
 }
 
 .CityWeather,
@@ -61,6 +97,21 @@ ul {
   padding: 0;
   list-style-type: none;
   text-align: start;
+  margin-top: 24px;
+}
+.MainTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 43px;
+  line-height: 52px;
+  /* identical to box height */
+
+  color: #303345;
 }
 .WeekWeatherList {
   padding: 0;
