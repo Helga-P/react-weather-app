@@ -17,7 +17,7 @@ function App() {
       <Container className="col-md-6 align-items-center ContentBox fluid">
         <Row>
           <Col>
-            <h1>Weather Forecast</h1>
+            <h1 className="Header">Weather Forecast</h1>
           </Col>
         </Row>
         <Form className="searchForm">

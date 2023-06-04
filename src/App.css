@@ -21,6 +21,7 @@ body {
 } */
 
 .ContentBox {
+  margin-top: 5%;
   background: rgba(255, 255, 255, 0.29);
   border: 6px solid #ffffff;
   box-shadow: 30px 30px 40px -10px rgba(0, 0, 0, 0.15);
@@ -41,8 +42,18 @@ body {
 }
 
 .MainIcon {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0px 9px 30px rgba(0, 0, 0, 0.05));
+}
+
+.Header {
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 43px;
+  line-height: 52px;
 }
 
 .CityWeather,
