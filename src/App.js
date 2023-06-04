@@ -8,16 +8,19 @@ import ThemeProvider from "react-bootstrap/ThemeProvider";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import SunWithWind from "./img/SunWithWind.svg";
+import SunWithWind from "./img/sunny.svg";
+import DrizzleSunny from "./img/drizzle-sunny.svg";
 
 function App() {
   return (
     <div className="App">
-      <Container className="col-md-6 align-items-center">
+      <Container className="col-md-6 align-items-center ContentBox fluid">
         <Row>
-          <Col>1 of 1</Col>
+          <Col>
+            <h1>Weather Forecast</h1>
+          </Col>
         </Row>
-        <Form>
+        <Form className="searchForm">
           <Form.Label></Form.Label>
           <Row className="justify-content-center align-items-center">
             <Col>
@@ -41,7 +44,7 @@ function App() {
         </Form>
         <Row>
           <Col md="auto">
-            <ul>
+            <ul className="CityWeather">
               <li>Lisbon</li>
               <li>Saturday 19:53</li>
               <li>Clouds</li>
@@ -51,11 +54,11 @@ function App() {
         </Row>
         <Row>
           <Col className="IconAndTemp">
-            <img src={SunWithWind} alt="SunAndRain" className="MainIcon" />
+            <img src={DrizzleSunny} alt="SunAndRain" className="MainIcon" />
             <p>21°C</p>
           </Col>
           <Col>
-            <ul>
+            <ul className="CityWeather">
               <li>Precipitation: 64%</li>
               <li>Wind: 8km/h</li>
             </ul>
@@ -63,7 +66,7 @@ function App() {
         </Row>
         <Row>
           <Col>
-            <ul>
+            <ul className="WeekWeatherList">
               <li>
                 <div>
                   <p>Sun</p>
@@ -80,8 +83,70 @@ function App() {
                   <small>°</small>
                 </div>
               </li>
-              <li> </li>
-              <li></li>
+              <li>
+                <div>
+                  <p>Sun</p>
+                </div>
+                <div>
+                  <img
+                    src={SunWithWind}
+                    alt="Sun_With_Wind"
+                    className="WeatherIconSmall"
+                  />
+                </div>
+                <div>
+                  22
+                  <small>°</small>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <p>Sun</p>
+                </div>
+                <div>
+                  <img
+                    src={SunWithWind}
+                    alt="Sun_With_Wind"
+                    className="WeatherIconSmall"
+                  />
+                </div>
+                <div>
+                  22
+                  <small>°</small>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <p>Sun</p>
+                </div>
+                <div>
+                  <img
+                    src={SunWithWind}
+                    alt="Sun_With_Wind"
+                    className="WeatherIconSmall"
+                  />
+                </div>
+                <div>
+                  22
+                  <small>°</small>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <p>Sun</p>
+                </div>
+                <div>
+                  <img
+                    src={SunWithWind}
+                    alt="Sun_With_Wind"
+                    className="WeatherIconSmall"
+                  />
+                </div>
+                <div>
+                  22
+                  <small>°</small>
+                </div>
+              </li>
             </ul>
           </Col>
         </Row>

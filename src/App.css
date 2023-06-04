@@ -1,57 +1,72 @@
-.App {
+body {
   text-align: center;
+  align-items: center;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 189, 189) 0%,
+    rgb(255, 216, 168) 62%,
+    rgb(255, 248, 168) 100.7%
+  ) !important;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.App {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+}
+
+/* .searchForm {
+} */
+
+.ContentBox {
+  background: rgba(255, 255, 255, 0.29);
+  border: 6px solid #ffffff;
+  box-shadow: 30px 30px 40px -10px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 18px;
+  left: 0px;
+  border-radius: 56px;
 }
 
 .WeatherIconSmall {
   width: 50px;
-    height: 50px;
-    align-items: center;
+  height: 50px;
+  align-items: center;
 }
 
 .IconAndTemp {
   display: flex;
 }
 
-.MainIcon{
+.MainIcon {
   width: 70px;
   height: 70px;
 }
 
+.CityWeather,
 ul {
+  padding: 0;
   list-style-type: none;
   text-align: start;
-  padding: 0;
 }
-
+.WeekWeatherList {
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
 .no-margin {
   margin: 0;
 }
-
-.WeatherDashboard {
-  background: radial-gradient(99.73% 98.31% at 51.96% 40.13%, rgba(96, 103, 242, 0.8) 0.01%, rgba(52, 52, 52, 0.8) 94.06%)
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-    ;
-    box-shadow: 10px 28px 36px 17px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(25.5px);
-    /* Note: backdrop-filter has minimal browser support */
-  
-    border-radius: 56px;
-    
-}
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
-
-
 
 @keyframes App-logo-spin {
   from {
