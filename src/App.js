@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
@@ -10,6 +11,30 @@ import SunWithWind from "./img/sunny.svg";
 import DrizzleSunny from "./img/drizzle-sunny.svg";
 
 function App() {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+    });
+  }
+
+  function search() {
+    const apiKey = "6d68aadfacdd4f5163bc273049a0cf2d";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${"Lisbon"}&appid=${apiKey}&units=metric
+`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  if (!weatherData.ready) {
+    search();
+  }
+
   return (
     <div>
       <div className="App">
@@ -50,7 +75,7 @@ function App() {
               <ul className="CityWeather">
                 <li className="city">Lisbon</li>
                 <li>Saturday 19:53</li>
-                <li>Clouds</li>
+                <li className="weather-desc">{weatherData.description}</li>
               </ul>
             </Col>
             <Col></Col>
@@ -58,12 +83,14 @@ function App() {
           <Row>
             <Col className="IconAndTemp">
               <img src={DrizzleSunny} alt="SunAndRain" className="MainIcon" />
-              <p className="MainTemp">21°C</p>
+              <p className="MainTemp">
+                {Math.round(weatherData.temperature)}°C
+              </p>
             </Col>
             <Col>
               <ul className="CityWeather">
-                <li>Precipitation: 64%</li>
-                <li>Wind: 8km/h</li>
+                <li>Humidity: {Math.round(weatherData.humidity)}%</li>
+                <li>Wind: {Math.round(weatherData.wind)} km/h</li>
               </ul>
             </Col>
           </Row>

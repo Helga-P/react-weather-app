@@ -131,6 +131,10 @@ ul {
   margin: 0;
 }
 
+.weather-desc {
+  text-transform: capitalize;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
