@@ -1,25 +1,3 @@
-body {
-  text-align: center;
-  align-items: center;
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgb(255, 189, 189) 0%,
-    rgb(255, 216, 168) 62%,
-    rgb(255, 248, 168) 100.7%
-  ) !important;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  font-family: "Inter";
-  font-style: normal;
-  color: #303345;
-}
-
-.App {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
 .code-link {
   display: flex;
   justify-content: center;
@@ -97,4 +75,40 @@ img,
   font-size: 43px;
   line-height: 52px;
   color: #303345;
+}
+
+.CityWeather,
+ul {
+  padding: 0;
+  list-style-type: none;
+  text-align: start;
+  margin-top: 24px;
+}
+.MainTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 43px;
+  line-height: 52px;
+  /* identical to box height */
+
+  color: #303345;
+}
+.WeekWeatherList {
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+.no-margin {
+  margin: 0;
+}
+
+.weather-desc {
+  text-transform: capitalize;
 }

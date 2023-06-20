@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import WeatherCitySearch from "./WeatherCitySearch";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import SunWithWind from "./img/sunny.svg";
-import DrizzleSunny from "./img/drizzle-sunny.svg";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  let [city, setCity] = useState("Kyiv");
+
+  function handelSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+  function handelCityChange(event) {
+    setCity(event.target.value);
+  }
 
   function handleResponse(response) {
+    console.log(response);
+    console.log("here");
+    console.log(response.data.dt);
+    // console.log(new Date(response.data.dt * 1000));
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -21,30 +33,33 @@ function App() {
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
+      date: new Date(response.data.dt * 1000),
+      city: response.data.name,
     });
   }
 
   function search() {
     const apiKey = "6d68aadfacdd4f5163bc273049a0cf2d";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${"Lisbon"}&appid=${apiKey}&units=metric
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric
 `;
     axios.get(apiUrl).then(handleResponse);
   }
 
   if (!weatherData.ready) {
     search();
+    return <div>Loading... </div>;
   }
 
   return (
     <div>
       <div className="App">
-        <Container className="col-md-6 align-items-center ContentBox fluid">
+        <Container className="WeatherCitySearch col-md-6 align-items-center ContentBox fluid">
           <Row>
             <Col>
               <h1 className="Header">Weather Forecast</h1>
             </Col>
           </Row>
-          <Form className="searchForm">
+          <Form onSubmit={handelSubmit} className="searchForm">
             <Form.Label></Form.Label>
             <Row className="justify-content-center align-items-center">
               <Col>
@@ -52,6 +67,7 @@ function App() {
                   type="text"
                   placeholder="Enter City"
                   className="no-margin searchLine"
+                  onChange={handelCityChange}
                 ></Form.Control>
               </Col>
               <Col xs="auto">
@@ -70,116 +86,7 @@ function App() {
               </Col>
             </Row>
           </Form>
-          <Row>
-            <Col md="auto">
-              <ul className="CityWeather">
-                <li className="city">Lisbon</li>
-                <li>Saturday 19:53</li>
-                <li className="weather-desc">{weatherData.description}</li>
-              </ul>
-            </Col>
-            <Col></Col>
-          </Row>
-          <Row>
-            <Col className="IconAndTemp">
-              <img src={DrizzleSunny} alt="SunAndRain" className="MainIcon" />
-              <p className="MainTemp">
-                {Math.round(weatherData.temperature)}°C
-              </p>
-            </Col>
-            <Col>
-              <ul className="CityWeather">
-                <li>Humidity: {Math.round(weatherData.humidity)}%</li>
-                <li>Wind: {Math.round(weatherData.wind)} km/h</li>
-              </ul>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <ul className="WeekWeatherList">
-                <li>
-                  <div>
-                    <p>Sun</p>
-                  </div>
-                  <div>
-                    <img
-                      src={SunWithWind}
-                      alt="Sun_With_Wind"
-                      className="WeatherIconSmall"
-                    />
-                  </div>
-                  <div>
-                    22
-                    <small>°</small>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p>Sun</p>
-                  </div>
-                  <div>
-                    <img
-                      src={SunWithWind}
-                      alt="Sun_With_Wind"
-                      className="WeatherIconSmall"
-                    />
-                  </div>
-                  <div>
-                    22
-                    <small>°</small>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p>Sun</p>
-                  </div>
-                  <div>
-                    <img
-                      src={SunWithWind}
-                      alt="Sun_With_Wind"
-                      className="WeatherIconSmall"
-                    />
-                  </div>
-                  <div>
-                    22
-                    <small>°</small>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p>Sun</p>
-                  </div>
-                  <div>
-                    <img
-                      src={SunWithWind}
-                      alt="Sun_With_Wind"
-                      className="WeatherIconSmall"
-                    />
-                  </div>
-                  <div>
-                    22
-                    <small>°</small>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p>Sun</p>
-                  </div>
-                  <div>
-                    <img
-                      src={SunWithWind}
-                      alt="Sun_With_Wind"
-                      className="WeatherIconSmall"
-                    />
-                  </div>
-                  <div>
-                    22
-                    <small>°</small>
-                  </div>
-                </li>
-              </ul>
-            </Col>
-          </Row>
+          <WeatherCitySearch weatherData={weatherData} city={city} />
         </Container>
       </div>
       <div className="code-link">
