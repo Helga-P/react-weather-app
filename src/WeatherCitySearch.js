@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TwoD from "./img/02d.svg";
+import UnitsCallculation from "./UnitsCallculation";
 
 export default function WeatherCitySearch(props) {
   return (
@@ -26,10 +27,7 @@ export default function WeatherCitySearch(props) {
       <Row>
         <Col className="IconAndTemp">
           <Icons code={props.weatherData.icon} />
-          <p className="MainTemp">
-            {Math.round(props.weatherData.temperature)}
-          </p>
-          <p className="unit">°C</p>
+          <UnitsCallculation celcius={props.weatherData.temperature} />
         </Col>
         <Col>
           <ul className="CityWeather">

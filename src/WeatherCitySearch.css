@@ -57,7 +57,8 @@ span {
   align-items: center;
 }
 
-.IconAndTemp {
+.IconAndTemp,
+.UnitsCallculation {
   display: flex;
 }
 
@@ -117,4 +118,9 @@ ul {
 
 .weather-desc {
   text-transform: capitalize;
+}
+
+.units-icon {
+  text-decoration: none;
+  color: #1567c0;
 }
