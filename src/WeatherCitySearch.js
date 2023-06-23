@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
+import Icons from "./Icons";
 import "./WeatherCitySearch.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import SunWithWind from "./img/sunny.svg";
-import DrizzleSunny from "./img/drizzle-sunny.svg";
+import TwoD from "./img/02d.svg";
 
 export default function WeatherCitySearch(props) {
   return (
@@ -25,7 +25,7 @@ export default function WeatherCitySearch(props) {
       </Row>
       <Row>
         <Col className="IconAndTemp">
-          <img src={DrizzleSunny} alt="SunAndRain" className="MainIcon" />
+          <Icons code={props.weatherData.icon} />
           <p className="MainTemp">
             {Math.round(props.weatherData.temperature)}°C
           </p>
@@ -46,7 +46,7 @@ export default function WeatherCitySearch(props) {
               </div>
               <div>
                 <img
-                  src={SunWithWind}
+                  src={TwoD}
                   alt="Sun_With_Wind"
                   className="WeatherIconSmall"
                 />
@@ -62,7 +62,7 @@ export default function WeatherCitySearch(props) {
               </div>
               <div>
                 <img
-                  src={SunWithWind}
+                  src={TwoD}
                   alt="Sun_With_Wind"
                   className="WeatherIconSmall"
                 />
@@ -78,7 +78,7 @@ export default function WeatherCitySearch(props) {
               </div>
               <div>
                 <img
-                  src={SunWithWind}
+                  src={TwoD}
                   alt="Sun_With_Wind"
                   className="WeatherIconSmall"
                 />
@@ -94,7 +94,7 @@ export default function WeatherCitySearch(props) {
               </div>
               <div>
                 <img
-                  src={SunWithWind}
+                  src={TwoD}
                   alt="Sun_With_Wind"
                   className="WeatherIconSmall"
                 />
@@ -110,7 +110,7 @@ export default function WeatherCitySearch(props) {
               </div>
               <div>
                 <img
-                  src={SunWithWind}
+                  src={TwoD}
                   alt="Sun_With_Wind"
                   className="WeatherIconSmall"
                 />
