@@ -27,8 +27,9 @@ export default function WeatherCitySearch(props) {
         <Col className="IconAndTemp">
           <Icons code={props.weatherData.icon} />
           <p className="MainTemp">
-            {Math.round(props.weatherData.temperature)}°C
+            {Math.round(props.weatherData.temperature)}
           </p>
+          <p className="unit">°C</p>
         </Col>
         <Col>
           <ul className="CityWeather">

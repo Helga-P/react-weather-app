@@ -61,6 +61,12 @@ span {
   display: flex;
 }
 
+.unit {
+  position: relative;
+  top: 45px;
+  margin-left: 5px;
+}
+
 img,
 .MainIcon {
   width: 150px;
