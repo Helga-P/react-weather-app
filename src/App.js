@@ -95,7 +95,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Open-source code
+          Open-source project
         </a>
         , by Olha Prydyus from She Codes
       </div>
