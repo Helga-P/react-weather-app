@@ -8,6 +8,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TwoD from "./img/02d.svg";
 import UnitsCallculation from "./UnitsCallculation";
+import HumidityIcon from "./img/humidity-icon.svg";
+import WindIcon from "./img/wind-icon.svg";
 
 export default function WeatherCitySearch(props) {
   return (
@@ -25,15 +27,29 @@ export default function WeatherCitySearch(props) {
         <Col></Col>
       </Row>
       <Row>
-        <Col className="IconAndTemp">
+        <Col md="auto" className="IconAndTemp">
           <Icons code={props.weatherData.icon} />
           <UnitsCallculation celcius={props.weatherData.temperature} />
         </Col>
-        <Col>
-          <ul className="CityWeather">
-            <li>Humidity: {Math.round(props.weatherData.humidity)}%</li>
-            <li>Wind: {Math.round(props.weatherData.wind)} km/h</li>
-          </ul>
+        <Col className="hum-wind-colums">
+          <Row md="auto">
+            <Col className="focused-col">
+              <span>
+                <img
+                  src={HumidityIcon}
+                  alt="humidity"
+                  className="static-icon"
+                />
+                Humidity: {Math.round(props.weatherData.humidity)}%
+              </span>
+            </Col>
+            <Col className="focused-col">
+              <span>
+                <img src={WindIcon} alt="wind" className="static-icon" />
+                Wind: {Math.round(props.weatherData.wind)} km/h
+              </span>
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Row>
