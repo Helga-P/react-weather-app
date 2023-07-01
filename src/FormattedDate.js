@@ -1,9 +1,6 @@
 import React from "react";
 
 export default function FormattedDate(props) {
-  console.log("props.apiDate");
-  console.log(props.apiDate);
-
   let months = [
     "Jan",
     "Feb",
@@ -37,7 +34,7 @@ export default function FormattedDate(props) {
     minutes = `0${minutes}`;
   }
 
-  let month = months[props.apiDate.getMonth() + 1];
+  let month = months[props.apiDate.getMonth()];
   let datyNumber = [props.apiDate.getDate()];
 
   return (

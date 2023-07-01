@@ -39,7 +39,7 @@ export default function Icons(props) {
     "50d": FiftyD,
     "50n": FiftyN,
   };
-  console.log(props.code);
+
   return (
     <img src={iconsMapping[props.code]} alt="SunAndRain" className="MainIcon" />
   );

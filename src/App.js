@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import FiveDaysWeather from "./FiveDaysWeather";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -22,12 +23,9 @@ function App() {
   }
 
   function handleResponse(response) {
-    console.log(response);
-    console.log("here");
-    console.log(response.data.dt);
-    // console.log(new Date(response.data.dt * 1000));
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -39,7 +37,7 @@ function App() {
   }
 
   function search() {
-    const apiKey = "6d68aadfacdd4f5163bc273049a0cf2d";
+    const apiKey = "bb0df6985c2eab6a171d64a6bacbb4e1";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric
 `;
     axios.get(apiUrl).then(handleResponse);
@@ -87,6 +85,7 @@ function App() {
             </Row>
           </Form>
           <WeatherCitySearch weatherData={weatherData} city={city} />
+          <FiveDaysWeather coordinates={weatherData.coordinates} />
         </Container>
       </div>
       <div className="code-link">

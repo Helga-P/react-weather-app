@@ -6,14 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import TwoD from "./img/02d.svg";
 import UnitsCallculation from "./UnitsCallculation";
 import HumidityIcon from "./img/humidity-icon.svg";
 import WindIcon from "./img/wind-icon.svg";
 
 export default function WeatherCitySearch(props) {
   return (
-    <Container>
+    <Row>
       <Row>
         <Col md="auto">
           <ul className="CityWeather">
@@ -52,92 +51,6 @@ export default function WeatherCitySearch(props) {
           </Row>
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <ul className="WeekWeatherList">
-            <li>
-              <div>
-                <p>Sun</p>
-              </div>
-              <div>
-                <img
-                  src={TwoD}
-                  alt="Sun_With_Wind"
-                  className="WeatherIconSmall"
-                />
-              </div>
-              <div>
-                22
-                <small>°</small>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p>Sun</p>
-              </div>
-              <div>
-                <img
-                  src={TwoD}
-                  alt="Sun_With_Wind"
-                  className="WeatherIconSmall"
-                />
-              </div>
-              <div>
-                22
-                <small>°</small>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p>Sun</p>
-              </div>
-              <div>
-                <img
-                  src={TwoD}
-                  alt="Sun_With_Wind"
-                  className="WeatherIconSmall"
-                />
-              </div>
-              <div>
-                22
-                <small>°</small>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p>Sun</p>
-              </div>
-              <div>
-                <img
-                  src={TwoD}
-                  alt="Sun_With_Wind"
-                  className="WeatherIconSmall"
-                />
-              </div>
-              <div>
-                22
-                <small>°</small>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p>Sun</p>
-              </div>
-              <div>
-                <img
-                  src={TwoD}
-                  alt="Sun_With_Wind"
-                  className="WeatherIconSmall"
-                />
-              </div>
-              <div>
-                22
-                <small>°</small>
-              </div>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-    </Container>
+    </Row>
   );
 }

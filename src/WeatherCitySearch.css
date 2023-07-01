@@ -52,8 +52,8 @@ span {
 }
 
 .WeatherIconSmall {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   align-items: center;
 }
 
@@ -142,4 +142,31 @@ ul {
   background: rgba(255, 255, 255, 0.36);
   padding: 8px;
   margin-right: 20px;
+}
+
+li .future-day-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp-max {
+  padding: 0;
+  color: #303345;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.temp-min {
+  padding: 0;
+  margin-left: 7px;
+  color: #9c9eaa;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.future-day-name {
+  color: #303345;
+  font-weight: 600;
 }
