@@ -27,7 +27,7 @@ export default function WeatherCitySearch(props) {
       </Row>
       <Row>
         <Col md="auto" className="IconAndTemp">
-          <Icons code={props.weatherData.icon} />
+          <Icons code={props.weatherData.icon} size={"MainIcon"} />
           <UnitsCallculation celcius={props.weatherData.temperature} />
         </Col>
         <Col className="hum-wind-colums">

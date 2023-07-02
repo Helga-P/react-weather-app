@@ -1,55 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TwoD from "./img/02d.svg";
 import axios from "axios";
+import Icons from "./Icons";
+import OneDayWeather from "./OneDayWeather";
 
 export default function FiveDaysWeather(props) {
-  function handleResponse(response) {
-    console.log(response);
-    let maxTemp = response.data.daily[0].temp.max;
-    let minTemp = response.data.daily[0].temp.min;
-  }
+  let [loaded, setLoaded] = useState(false);
+  let [weatherInfo, setWeatherInfo] = useState(null);
+  console.log("Kybus");
 
-  console.log(props);
-
-  const apiKey = "bb0df6985c2eab6a171d64a6bacbb4e1";
   let longitude = props.coordinates.lon;
   let latitude = props.coordinates.lat;
 
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric
+  function handleResponse(response) {
+    setLoaded(props.coordinates);
+    setWeatherInfo(response.data.daily);
+  }
+
+  if (loaded == props.coordinates) {
+    return (
+      <Row>
+        {weatherInfo.map(function (daylyWeather, index) {
+          if (index > 0 && index < 6) {
+            return (
+              <Col key={index}>
+                <OneDayWeather data={daylyWeather} />
+              </Col>
+            );
+          }
+        })}
+      </Row>
+    );
+  } else {
+    const apiKey = "bb0df6985c2eab6a171d64a6bacbb4e1";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric
   `;
+    console.log("Andriiychyk");
+    axios.get(apiUrl).then(handleResponse);
 
-  axios.get(apiUrl).then(handleResponse);
-
-  return (
-    <Row>
-      <Col>
-        <ul className="WeekWeatherList">
-          <li className="future-day-block">
-            <div className="future-day-name">
-              <p>Sunday</p>
-            </div>
-            <div className="future-day-icon">
-              <img
-                src={TwoD}
-                alt="Sun_With_Wind"
-                className="WeatherIconSmall"
-              />
-            </div>
-            <div className="future-day-temp">
-              <span className="temp-max">
-                {maxTemp}
-                <small>°</small>
-              </span>
-              <span className="temp-min">
-                22
-                <small>°</small>
-              </span>
-            </div>
-          </li>
-        </ul>
-      </Col>
-    </Row>
-  );
+    return null;
+  }
 }

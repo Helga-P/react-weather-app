@@ -41,6 +41,10 @@ export default function Icons(props) {
   };
 
   return (
-    <img src={iconsMapping[props.code]} alt="SunAndRain" className="MainIcon" />
+    <img
+      src={iconsMapping[props.code]}
+      alt="SunAndRain"
+      className={props.size}
+    />
   );
 }
