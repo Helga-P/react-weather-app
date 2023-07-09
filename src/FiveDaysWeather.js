@@ -43,6 +43,7 @@ export default function FiveDaysWeather(props) {
               </Col>
             );
           }
+          return null;
         })}
       </Row>
     );
