@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import TwoD from "./img/02d.svg";
 import axios from "axios";
-import Icons from "./Icons";
 import OneDayWeather from "./OneDayWeather";
+import "./FiveDaysWeather.css";
 
 export default function FiveDaysWeather(props) {
   let [loaded, setLoaded] = useState(false);
   let [weatherInfo, setWeatherInfo] = useState(null);
-  console.log("Kybus");
+
+  let units = props.units;
 
   let longitude = props.coordinates.lon;
   let latitude = props.coordinates.lat;
@@ -21,12 +21,25 @@ export default function FiveDaysWeather(props) {
 
   if (loaded == props.coordinates) {
     return (
-      <Row>
-        {weatherInfo.map(function (daylyWeather, index) {
+      <Row className="FiveDaysWeather">
+        {weatherInfo.map(function (dailyWeather, index) {
           if (index > 0 && index < 6) {
+            let max = dailyWeather.temp.max;
+            let min = dailyWeather.temp.min;
+            if (units === "fahrenheit") {
+              max = Math.round((dailyWeather.temp.max * 9) / 5 + 32);
+
+              min = Math.round((dailyWeather.temp.min * 9) / 5 + 32);
+            }
+
             return (
               <Col key={index}>
-                <OneDayWeather data={daylyWeather} />
+                <OneDayWeather
+                  dt={dailyWeather.dt}
+                  max={max}
+                  min={min}
+                  icon={dailyWeather.weather[0].icon}
+                />
               </Col>
             );
           }
@@ -37,7 +50,6 @@ export default function FiveDaysWeather(props) {
     const apiKey = "bb0df6985c2eab6a171d64a6bacbb4e1";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric
   `;
-    console.log("Andriiychyk");
     axios.get(apiUrl).then(handleResponse);
 
     return null;

@@ -13,6 +13,7 @@ import FiveDaysWeather from "./FiveDaysWeather";
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   let [city, setCity] = useState("Kyiv");
+  const [units, setUnits] = useState("celcius");
 
   function handelSubmit(event) {
     event.preventDefault();
@@ -84,8 +85,16 @@ function App() {
               </Col>
             </Row>
           </Form>
-          <WeatherCitySearch weatherData={weatherData} city={city} />
-          <FiveDaysWeather coordinates={weatherData.coordinates} />
+          <WeatherCitySearch
+            weatherData={weatherData}
+            city={city}
+            units={units}
+            setUnits={setUnits}
+          />
+          <FiveDaysWeather
+            coordinates={weatherData.coordinates}
+            units={units}
+          />
         </Container>
       </div>
       <div className="code-link">

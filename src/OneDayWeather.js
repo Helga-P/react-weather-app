@@ -1,6 +1,7 @@
 import React from "react";
 import Icons from "./Icons";
 import { Col } from "react-bootstrap";
+import "./OneDayWeather.css";
 
 export default function OneDayWeather(props) {
   function dayName() {
@@ -14,7 +15,7 @@ export default function OneDayWeather(props) {
       "Saturday",
     ];
 
-    let date = new Date(props.data.dt * 1000);
+    let date = new Date(props.dt * 1000);
     let dayNumber = date.getDay();
 
     return days[dayNumber];
@@ -26,15 +27,15 @@ export default function OneDayWeather(props) {
         <p>{dayName()}</p>
       </div>
       <div className="future-day-icon">
-        <Icons code={props.data.weather[0].icon} size={"WeatherIconSmall"} />
+        <Icons code={props.icon} size={"WeatherIconSmall"} />
       </div>
       <div className="future-day-temp">
         <span className="temp-max">
-          {Math.round(props.data.temp.max)}
+          {Math.round(props.max)}
           <small>°</small>
         </span>
         <span className="temp-min">
-          {Math.round(props.data.temp.min)}
+          {Math.round(props.min)}
           <small>°</small>
         </span>
       </div>

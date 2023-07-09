@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import UnitsCallculation from "./UnitsCallculation";
+import UnitsCalculation from "./UnitsCallculation";
 import HumidityIcon from "./img/humidity-icon.svg";
 import WindIcon from "./img/wind-icon.svg";
 
@@ -28,7 +28,11 @@ export default function WeatherCitySearch(props) {
       <Row>
         <Col md="auto" className="IconAndTemp">
           <Icons code={props.weatherData.icon} size={"MainIcon"} />
-          <UnitsCallculation celcius={props.weatherData.temperature} />
+          <UnitsCalculation
+            units={props.units}
+            setUnits={props.setUnits}
+            celcius={props.weatherData.temperature}
+          />
         </Col>
         <Col className="hum-wind-colums">
           <Row md="auto">

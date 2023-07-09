@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import "./WeatherCitySearch.css";
 
-export default function UnitsCallculation(props) {
-  const [units, setUnits] = useState("celcius");
-
+export default function UnitsCalculation(props) {
   function convertToFahrenheit(event) {
     event.preventDefault();
-    setUnits("fahrenheit");
+    props.setUnits("fahrenheit");
   }
 
   function convertToCelcius(event) {
     event.preventDefault();
-    setUnits("celcius");
+    props.setUnits("celcius");
   }
 
-  if (units === "celcius") {
+  if (props.units === "celcius") {
     return (
       <div className="UnitsCallculation">
         <p className="MainTemp">{Math.round(props.celcius)}</p>

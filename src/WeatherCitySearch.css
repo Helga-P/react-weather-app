@@ -106,7 +106,7 @@ ul {
   color: #303345;
 }
 .WeekWeatherList {
-  padding: 0;
+  /* padding: 0; */
   text-align: center;
   list-style-type: none;
   display: flex;
@@ -144,7 +144,7 @@ ul {
   margin-right: 20px;
 }
 
-li .future-day-block {
+.future-day-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
