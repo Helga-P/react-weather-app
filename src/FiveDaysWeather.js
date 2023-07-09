@@ -19,7 +19,7 @@ export default function FiveDaysWeather(props) {
     setWeatherInfo(response.data.daily);
   }
 
-  if (loaded == props.coordinates) {
+  if (loaded === props.coordinates) {
     return (
       <Row className="FiveDaysWeather">
         {weatherInfo.map(function (dailyWeather, index) {
