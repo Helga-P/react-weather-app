@@ -73,15 +73,6 @@ function App() {
                 <Button type="submit" size="lg" className="no-margin searchbtn">
                   Search
                 </Button>
-                <span />
-                <Button
-                  vvariant="primary"
-                  type="submit"
-                  size="lg"
-                  className="no-margin myGeoBtn"
-                >
-                  My Geo
-                </Button>
               </Col>
             </Row>
           </Form>

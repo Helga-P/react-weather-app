@@ -170,3 +170,7 @@ ul {
   color: #303345;
   font-weight: 600;
 }
+
+.city-info-block {
+  padding: 0 24px !important;
+}

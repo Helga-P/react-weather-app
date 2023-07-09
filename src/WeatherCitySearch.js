@@ -13,7 +13,7 @@ export default function WeatherCitySearch(props) {
   return (
     <Row>
       <Row>
-        <Col md="auto">
+        <Col md="auto" className="city-info-block">
           <ul className="CityWeather">
             <li className="city">{props.weatherData.city}</li>
             <li>
@@ -22,7 +22,6 @@ export default function WeatherCitySearch(props) {
             <li className="weather-desc">{props.weatherData.description}</li>
           </ul>
         </Col>
-        <Col></Col>
       </Row>
       <Row>
         <Col md="auto" className="IconAndTemp">
